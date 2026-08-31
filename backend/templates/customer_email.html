@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<title>Inquiry Received</title>
+
+<style>
+
+body{
+    margin:0;
+    padding:30px;
+    background:#f4f6f8;
+    font-family:Arial,Helvetica,sans-serif;
+}
+
+.container{
+    max-width:850px;
+    margin:auto;
+    background:#ffffff;
+    border-radius:10px;
+    overflow:hidden;
+    box-shadow:0 5px 20px rgba(0,0,0,.08);
+}
+
+.header{
+    background:#0058be;
+    color:white;
+    padding:30px;
+}
+
+.header h1{
+    margin:0;
+    font-size:28px;
+}
+
+.header p{
+    margin-top:8px;
+}
+
+.section{
+    padding:30px;
+    line-height:1.8;
+}
+
+.badge{
+    display:inline-block;
+    background:#000;
+    color:white;
+    padding:10px 18px;
+    border-radius:5px;
+    font-weight:bold;
+}
+
+.info{
+    margin-top:25px;
+    background:#f7f9fb;
+    border-left:5px solid #0058be;
+    padding:20px;
+}
+
+.footer{
+    background:#f7f9fb;
+    padding:25px;
+    font-size:13px;
+    color:#666;
+}
+
+ul{
+    padding-left:20px;
+}
+
+li{
+    margin-bottom:10px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="header">
+
+<h1>Thank You for Your Inquiry</h1>
+
+<p>Sandeep Enterprises</p>
+
+</div>
+
+<div class="section">
+
+<p>Dear <strong>{{NAME}}</strong>,</p>
+
+<p>
+Thank you for contacting <strong>Sandeep Enterprises</strong>.
+Your manufacturing inquiry has been successfully received.
+</p>
+
+<p>Your Inquiry Reference Number:</p>
+
+<p>
+<span class="badge">
+{{INQUIRY_ID}}
+</span>
+</p>
+
+<div class="info">
+
+<strong>Requirement Submitted:</strong>
+
+<br><br>
+
+{{REQUIREMENT}}
+
+</div>
+
+<h2 style="margin-top:35px;">
+What Happens Next?
+</h2>
+
+<ul>
+
+<li>Our engineering team will review your design.</li>
+
+<li>We will evaluate manufacturability.</li>
+
+<li>Material and production feasibility will be checked.</li>
+
+<li>A quotation will be prepared if applicable.</li>
+
+<li>Our representative will contact you using the details you provided.</li>
+
+</ul>
+
+<p>
+
+Please keep your Inquiry ID for future communication.
+
+</p>
+
+</div>
+
+<div class="footer">
+
+<p>
+
+This is a <strong>system-generated email</strong>.
+
+</p>
+
+<p>
+
+A copy of this inquiry has also been sent to the engineering team at
+<strong>Sandeep Enterprises</strong>.
+
+</p>
+
+<p>
+
+If you need to provide additional information, simply reply to this email.
+Your response will reach our team directly.
+
+</p>
+
+</div>
+
+</div>
+
+</body>
+
+</html>

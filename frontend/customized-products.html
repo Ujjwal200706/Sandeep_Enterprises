@@ -1,0 +1,291 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Custom Manufacturing Inquiry | Sandeep Enterprises</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primaryBlue: "#0058be",
+              lightBg: "#f7f9fb",
+            },
+          },
+        },
+      };
+    </script>
+
+    <style>
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      .input-box {
+        @apply w-full border border-gray-300 rounded-lg px-4 py-3 outline-none focus:border-primaryBlue;
+      }
+    </style>
+  </head>
+
+  <body class="bg-lightBg text-gray-800">
+    <!-- ================= NAVBAR ================= -->
+
+    <nav class="bg-black text-white shadow-lg">
+      <div
+        class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center"
+      >
+        <div>
+          <h1 class="text-2xl font-bold tracking-wide">Sandeep Enterprises</h1>
+
+          <p class="text-sm text-gray-300">Custom Manufacturing Solutions</p>
+        </div>
+
+        <a
+          href="index.html"
+          class="border border-primaryBlue px-5 py-2 rounded-lg hover:bg-primaryBlue transition"
+        >
+          Back to Home
+        </a>
+      </div>
+    </nav>
+
+    <!-- ================= HERO SECTION ================= -->
+
+    <section class="max-w-7xl mx-auto px-6 py-16">
+      <div class="text-center max-w-3xl mx-auto">
+        <h2 class="text-4xl md:text-5xl font-bold text-black">
+          Custom Manufacturing Inquiry
+        </h2>
+
+        <p class="mt-6 text-lg text-gray-600">
+          Upload your CAD design or product images. Our engineering team will
+          review your requirements and provide manufacturing feasibility and
+          quotation.
+        </p>
+      </div>
+    </section>
+
+    <!-- ================= MAIN FORM ================= -->
+
+    <section class="max-w-5xl mx-auto px-6 pb-20">
+      <form id="inquiryForm" class="space-y-8">
+        <!-- CUSTOMER INFORMATION CARD -->
+
+        <div class="bg-white rounded-2xl shadow-md p-8 border border-gray-200">
+          <h3 class="text-2xl font-bold mb-6 text-black">
+            Customer Information
+          </h3>
+
+          <div class="grid md:grid-cols-2 gap-6">
+            <div>
+              <label class="block mb-2 font-semibold"> Full Name </label>
+
+              <input
+                type="text"
+                id="name"
+                name="name"
+                placeholder="Enter your name"
+                class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:border-primaryBlue outline-none"
+              />
+            </div>
+
+            <div>
+              <label class="block mb-2 font-semibold"> Company Name </label>
+
+              <input
+                type="text"
+                id="company"
+                name="company"
+                placeholder="Company name"
+                class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:border-primaryBlue outline-none"
+              />
+            </div>
+
+            <div>
+              <label class="block mb-2 font-semibold"> Email </label>
+
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="example@email.com"
+                class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:border-primaryBlue outline-none"
+              />
+            </div>
+
+            <div>
+              <label class="block mb-2 font-semibold"> Phone Number </label>
+
+              <input
+                type="tel"
+                id="phone"
+                name="phone"
+                placeholder="+91 XXXXX XXXXX"
+                class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:border-primaryBlue outline-none"
+              />
+            </div>
+
+            <div>
+              <label class="block mb-2 font-semibold"> City </label>
+
+              <input
+                type="text"
+                id="city"
+                name="city"
+                placeholder="City"
+                class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:border-primaryBlue outline-none"
+              />
+            </div>
+
+            <div>
+              <label class="block mb-2 font-semibold"> State </label>
+
+              <input
+                type="text"
+                id="state"
+                name="state"
+                placeholder="State"
+                class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:border-primaryBlue outline-none"
+              />
+            </div>
+          </div>
+        </div>
+
+        <!-- REQUIREMENT SECTION -->
+
+        <div class="bg-white rounded-2xl shadow-md p-8 border border-gray-200">
+          <h3 class="text-2xl font-bold mb-5 text-black">
+            Product Requirement
+          </h3>
+
+          <label class="block mb-2 font-semibold">
+            Describe your product requirement
+          </label>
+
+          <textarea
+            id="message"
+            name="message"
+            rows="6"
+            placeholder="Example:
+            Material:
+            Quantity:
+            Dimensions:
+            Special requirements:
+            "
+            class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:border-primaryBlue outline-none"
+          ></textarea>
+        </div>
+
+        <!-- ================= UPLOAD TYPE SELECTION ================= -->
+
+        <div class="bg-white rounded-2xl shadow-md p-8 border border-gray-200">
+          <h3 class="text-2xl font-bold mb-6 text-black">
+            Product Design Upload
+          </h3>
+
+          <div class="flex flex-col md:flex-row gap-6">
+            <label
+              class="flex items-center gap-3 cursor-pointer border rounded-lg p-4 hover:border-primaryBlue"
+            >
+              <input
+                type="radio"
+                name="upload_type"
+                value="CAD"
+                id="cadOption"
+                checked
+                class="w-5 h-5"
+              />
+
+              <span class="font-semibold"> Upload CAD File </span>
+            </label>
+
+            <label
+              class="flex items-center gap-3 cursor-pointer border rounded-lg p-4 hover:border-primaryBlue"
+            >
+              <input
+                type="radio"
+                name="upload_type"
+                value="IMAGE"
+                id="imageOption"
+                class="w-5 h-5"
+              />
+
+              <span class="font-semibold"> Upload Product Images </span>
+            </label>
+          </div>
+        </div>
+
+        <!-- ================= CAD UPLOAD ================= -->
+
+        <div
+          id="cadUploadSection"
+          class="bg-white rounded-2xl shadow-md p-8 border border-gray-200"
+        >
+          <h3 class="text-2xl font-bold mb-4">Upload CAD Design</h3>
+
+          <p class="text-gray-600 mb-5">
+            Supported Formats:
+            <br />
+
+            STEP (.step), STP (.stp), STL (.stl), OBJ (.obj)
+          </p>
+
+          <input
+            type="file"
+            id="cadFile"
+            name="cad_file"
+            accept=".step,.stp,.stl,.obj"
+            class="block w-full border rounded-lg p-3"
+          />
+        </div>
+
+        <!-- ================= IMAGE UPLOAD ================= -->
+
+        <div
+          id="imageUploadSection"
+          class="hidden bg-white rounded-2xl shadow-md p-8 border border-gray-200"
+        >
+          <h3 class="text-2xl font-bold mb-4">Upload Product Images</h3>
+
+          <p class="text-gray-600 mb-5">
+            Upload product photos from different angles.
+          </p>
+
+          <input
+            type="file"
+            id="productImages"
+            name="product_images"
+            multiple
+            accept="image/*"
+            class="block w-full border rounded-lg p-3"
+          />
+          </div>
+
+        <!-- ================= PREVIEW GALLERY ================= -->
+
+        <div
+          id="previewGallery"
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+        ></div>
+
+        <!-- ================= SUBMIT BUTTON ================= -->
+
+        <div class="text-center pt-6">
+          <button
+            type="submit"
+            id="sendInquiry"
+            class="bg-primaryBlue text-white px-10 py-4 rounded-xl text-lg font-bold hover:bg-blue-700 transition"
+          >
+            SEND MANUFACTURING INQUIRY
+          </button>
+        </div>
+      </form>
+    </section>
+    <script src="main.js"></script>
+  </body>
+</html>
