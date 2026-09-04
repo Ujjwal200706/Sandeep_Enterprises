@@ -17,16 +17,14 @@ jobs:
 
       - name: Isolate Backend Folder
         run: |
-          #1. Install git-subtree if not present 
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git config --global user.name "github-actions[bot]"
-
           git subtree split --prefix=backend -b temp-hf-deploy
 
       - name: Push to Hugging Face Spaces Hub
         uses: mikefarah/lfs-folder-push@v1
         with:
-          Repository_url: 'https://huggingface.co'
+          repository_url: 'https://huggingface.co' # <-- Fixed lowercase r and complete path
           branch: 'main'
           folder: 'backend'
           github_token: ${{ secrets.GITHUB_TOKEN }}
