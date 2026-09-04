@@ -22,6 +22,6 @@ jobs:
           git config --global user.email "github-actions[bot]@://github.com"
           git config --global user.name "github-actions[bot]"
 
-          git subtree split --prefix=Backend -b temp-hf-deploy
+          git subtree split --prefix=backend -b temp-hf-deploy
 
           git push --force https://Ujjwal200706:$HF_TOKEN@huggingface.co/spaces/UjjwalAgg/Sandeep_Enterprises temp-hf-deploy:main
