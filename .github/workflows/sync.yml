@@ -24,4 +24,6 @@ jobs:
 
           git subtree split --prefix=backend -b temp-hf-deploy
 
+          git config --local http.https://huggingface.co "Authorization: Bearer $HF_TOKEN"
+
           git push --force https://HF_USER:$HF_TOKEN@huggingface.co/spaces/UjjwalAgg/Sandeep_Enterprises temp-hf-deploy:main
