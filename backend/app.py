@@ -3,6 +3,8 @@ import uuid
 import tempfile
 from typing import Dict, Optional
 
+import gradio as gr
+
 from flask import Flask, jsonify, request
 from flask_cors import CORS
 
@@ -308,6 +310,12 @@ def get_client_cad_data(client_id):
             "message": str(e)
         }), 500
 
+with gr.Blocks() as demo:
+    gr.Markdown("FLASK BACKEND ENGINE ACTIVE")
+    gr.Markdown("Your flask api route is active......")
+
+demo.launch(server_name=config.HOST, port=config.PORT, prevent_thread_lock=True)
+    
 
 # =====================================================
 # START SERVER

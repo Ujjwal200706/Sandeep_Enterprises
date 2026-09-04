@@ -1,0 +1,26 @@
+name: Sync Backend to Hugging Face
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  sync-to-hub:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Push Backend Subdirectory to HF
+        uses: andstor/copycat-action@v3
+        with:
+          personal_token: ${{secrets.HUGGINGFACE_TOKEN}}
+          src_path: backend/.
+          dst_path: /
+          dst_owner: UjjwalAgg
+          dst_repo_name: Sandeep_Enterprises
+          dst_repo_type: space
+          commit_message: "Deploying backend updates from GitHub"        
