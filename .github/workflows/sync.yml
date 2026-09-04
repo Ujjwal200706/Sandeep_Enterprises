@@ -23,7 +23,7 @@ jobs:
 
           git subtree split --prefix=backend -b temp-hf-deploy
 
-      - name: Push to Hugging Face
+      - name: Push to Hugging Face Spaces Hub
         uses: mikefarah/lfs-folder-push@v1
         with:
           Repository_url: 'https://huggingface.co'
