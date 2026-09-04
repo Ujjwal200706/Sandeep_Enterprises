@@ -15,12 +15,13 @@ jobs:
           fetch-depth: 0
 
       - name: Push Backend Subdirectory to HF
-        uses: andstor/copycat-action@v3
-        with:
-          personal_token: ${{secrets.HUGGINGFACE_TOKEN}}
-          src_path: backend/.
-          dst_path: /
-          dst_owner: UjjwalAgg
-          dst_repo_name: Sandeep_Enterprises
-          dst_repo_type: space
-          commit_message: "Deploying backend updates from GitHub"        
+        env:
+          HF_TOKEN: ${{secrets.HUGGINGFACE_TOKEN}}
+        run: |
+          #1. Install git-subtree if not present 
+          git config --global user.email "github-actions[bot]@://github.com"
+          git config --global user.name "github-actions[bot]"
+
+          git subtree split --prefix=Backend -b temp-hf-deploy
+
+          git push --force https://Ujjwal200706:$HF_TOKEN@huggingface.co/spaces/UjjwalAgg/Sandeep_Enterprises temp-hf-deploy:main
