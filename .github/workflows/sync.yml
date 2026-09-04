@@ -13,10 +13,9 @@ jobs:
         uses: actions/checkout@v3
         with:
           fetch-depth: 0
+          lfs: true
 
-      - name: Push Backend Subdirectory to HF
-        env:
-          HF_TOKEN: ${{secrets.HUGGINGFACE_TOKEN}}
+      - name: Isolate Backend Folder
         run: |
           #1. Install git-subtree if not present 
           git config --global user.email "github-actions[bot]@://github.com"
@@ -24,6 +23,11 @@ jobs:
 
           git subtree split --prefix=backend -b temp-hf-deploy
 
-          git config --local http.https://huggingface.co "Authorization: Bearer $HF_TOKEN"
-
-          git push --force https://HF_USER:$HF_TOKEN@huggingface.co/spaces/UjjwalAgg/Sandeep_Enterprises temp-hf-deploy:main
+      - name: Push to Hugging Face
+        uses: mikefarah/lfs-folder-push@v1
+        with:
+          Repository_url: 'https://huggingface.co'
+          branch: 'main'
+          folder: 'backend'
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          huggingface_token: ${{ secrets.HF_TOKEN }}
