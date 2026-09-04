@@ -11,21 +11,27 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
-          lfs: true
 
-      - name: Isolate Backend Folder
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+
+      # Installs the official Hugging Face command line / hub utility SDK
+      - name: Install Hugging Face Hub Client
+        run: pip install huggingface_hub
+
+      # Runs a 3-line native python command to upload just the folder
+      - name: Upload Backend Subdirectory to Space Hub
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
         run: |
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git config --global user.name "github-actions[bot]"
-          git subtree split --prefix=backend -b temp-hf-deploy
-
-      - name: Push to Hugging Face Spaces Hub
-        uses: mikefarah/lfs-folder-push@v1
-        with:
-          repository_url: 'https://huggingface.co' # <-- Fixed lowercase r and complete path
-          branch: 'main'
-          folder: 'backend'
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          huggingface_token: ${{ secrets.HF_TOKEN }}
+          python -c "
+          from huggingface_hub import HfApi
+          api = HfApi(token='${{ secrets.HF_TOKEN }}')
+          api.upload_folder(
+              folder_path='backend',
+              repo_id='UjjwalAgg/Sandeep_Enterprises',
+              repo_type='space'
+          )
+          "
