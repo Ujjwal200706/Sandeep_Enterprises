@@ -18,7 +18,7 @@ jobs:
       - name: Isolate Backend Folder
         run: |
           #1. Install git-subtree if not present 
-          git config --global user.email "github-actions[bot]@://github.com"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git config --global user.name "github-actions[bot]"
 
           git subtree split --prefix=backend -b temp-hf-deploy
