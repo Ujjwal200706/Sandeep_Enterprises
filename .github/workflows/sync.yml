@@ -24,4 +24,4 @@ jobs:
 
           git subtree split --prefix=backend -b temp-hf-deploy
 
-          git push --force https://Ujjwal200706:$HF_TOKEN@huggingface.co/spaces/UjjwalAgg/Sandeep_Enterprises temp-hf-deploy:main
+          git push --force https://HF_USER:$HF_TOKEN@huggingface.co/spaces/UjjwalAgg/Sandeep_Enterprises temp-hf-deploy:main
